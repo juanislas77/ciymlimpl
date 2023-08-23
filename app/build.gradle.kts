@@ -72,6 +72,9 @@ dependencies {
     debugImplementation("androidx.compose.ui:ui-tooling")
     debugImplementation("androidx.compose.ui:ui-test-manifest")
 
+    // navigation
+    implementation("androidx.navigation:navigation-compose:2.6.0")
+
     // retrofit
     implementation("com.squareup.retrofit2:retrofit:2.9.0")
     implementation("com.squareup.okhttp3:okhttp:5.0.0-alpha.2")
