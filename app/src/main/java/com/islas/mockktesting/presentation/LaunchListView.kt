@@ -39,11 +39,4 @@ fun LaunchListView(
     } else{
         Text(text = "Empty list")
     }
-//    LazyColumn{
-//        item(viewModel.result){ launchItem ->
-//            SpaceCard(modifier = Modifier, title = , imageUrl = , date = ) {
-//
-//            }
-//        }
-//    }
 }

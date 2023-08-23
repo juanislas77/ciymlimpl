@@ -34,10 +34,6 @@ fun SpaceCard(
         colors = CardDefaults.cardColors(
             containerColor = MaterialTheme.colorScheme.secondaryContainer
         ),
-//        border = BorderStroke(
-//            width = 1.dp,
-//            color = MaterialTheme.colorScheme.primary
-//        ),
         elevation = CardDefaults.cardElevation(1.dp)
     ) {
         Row(
@@ -74,13 +70,11 @@ fun SpaceCard(
                     text = title,
                     fontWeight = FontWeight.Medium,
                     fontSize = 20.sp,
-//                    color = MaterialTheme.colorScheme.onPrimaryContainer
                 )
                 Text(
                     text = date,
                     fontWeight = FontWeight.Normal,
                     fontSize = 14.sp
-//                    color = MaterialTheme.colorScheme.secondary
                 )
             }
         }

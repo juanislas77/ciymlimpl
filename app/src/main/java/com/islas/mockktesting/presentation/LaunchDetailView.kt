@@ -105,17 +105,6 @@ fun LaunchDetailView(
         )
         val context = LocalContext.current
         val intent = Intent(Intent.ACTION_VIEW, Uri.parse(launchItem.article))
-//        Text(
-//            text = launchItem.article,
-//            modifier = Modifier
-//                .fillMaxWidth()
-//                .padding(8.dp)
-//                .clickable {
-//                           startActivity(context, intent, null)
-//                },
-//            textAlign = TextAlign.Right,
-//            fontSize = 12.sp
-//        )
         Row(
             modifier = Modifier
                 .fillMaxWidth()

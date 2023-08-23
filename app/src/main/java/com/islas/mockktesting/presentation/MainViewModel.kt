@@ -3,7 +3,6 @@ package com.islas.mockktesting.presentation
 import android.util.Log
 import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.snapshots.SnapshotStateList
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -23,7 +22,6 @@ class MainViewModel(
         get() = _result
 
     private var _id = MutableLiveData("NonKey")
-    val id: LiveData<String> = _id
 
     fun setId(idItem: String) {
         _id.value = idItem
@@ -44,10 +42,10 @@ class MainViewModel(
             original = emptyList()
         )
 
-        when (_result.isNullOrEmpty()) {
+        when (_result.isEmpty()) {
             true -> {}
             false -> {
-                for (item in _result!!) {
+                for (item in _result) {
                     if (item.id == idItem) {
                         return item
                     }
@@ -57,18 +55,6 @@ class MainViewModel(
         return emptyItem
     }
 
-    //    private fun getLaunchesList() = viewModelScope.launch(Dispatchers.IO) {
-//        when (val result = repository.getData()) {
-//            is ResultAPI.Error -> {
-//                Log.e("MainViewModel", result.message)
-//            }
-//
-//            is ResultAPI.Success -> {
-//                _result.postValue(result.data.reversed())
-//
-//            }
-//        }
-//    }
     internal fun getLaunchesList() = viewModelScope.launch(Dispatchers.IO) {
         when (val result = repository.getData()) {
             is ResultAPI.Error -> {
@@ -91,6 +77,3 @@ class MainViewModel(
         }
     }
 }
-
-
-

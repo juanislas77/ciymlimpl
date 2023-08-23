@@ -11,7 +11,3 @@ val repositoryModule = module{
         bind<ServiceRepository>()
     }
 }
-
-//    fun provideRepository(api: IService): ServiceRepository{
-//        return IServiceImpl(api)
-//    }

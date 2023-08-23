@@ -6,11 +6,8 @@ import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
-import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.compose.rememberNavController
-import com.islas.mockktesting.designsystem.components.SpaceCard
 import com.islas.mockktesting.designsystem.theme.MockkTestingTheme
 import com.islas.mockktesting.navigation.RootNavigationGraph
 import com.islas.mockktesting.presentation.MainViewModel
@@ -31,20 +28,5 @@ class MainActivity : ComponentActivity() {
                 }
             }
         }
-    }
-}
-
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    SpaceCard(modifier = modifier, title = name, imageUrl = null, date = "01-01-2005") {
-
-    }
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    MockkTestingTheme {
-        Greeting("Android")
     }
 }
