@@ -1,17 +1,24 @@
 package com.islas.mockktesting.designsystem.components
 
+import android.os.Build
+import androidx.annotation.RequiresApi
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.FavoriteBorder
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
@@ -20,7 +27,11 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.SubcomposeAsyncImage
 import com.islas.mockktesting.R
+import java.time.OffsetDateTime
+import java.time.format.DateTimeFormatter
+import java.util.Locale
 
+@RequiresApi(Build.VERSION_CODES.O)
 @Composable
 fun SpaceCard(
     modifier: Modifier,
@@ -39,7 +50,9 @@ fun SpaceCard(
         Row(
             modifier = modifier
                 .fillMaxWidth()
-                .padding(8.dp)
+                .padding(8.dp),
+            horizontalArrangement = Arrangement.SpaceAround,
+            verticalAlignment = Alignment.CenterVertically
         ) {
             if (imageUrl.isNullOrBlank()) {
                 Image(
@@ -63,7 +76,7 @@ fun SpaceCard(
 
             Column(
                 modifier = Modifier
-                    .fillMaxWidth()
+//                    .fillMaxWidth()
                     .padding(8.dp)
             ) {
                 Text(
@@ -72,11 +85,27 @@ fun SpaceCard(
                     fontSize = 20.sp,
                 )
                 Text(
-                    text = date,
+                    text = setFormat(date),
                     fontWeight = FontWeight.Normal,
                     fontSize = 14.sp
                 )
             }
+            Icon(
+                modifier = Modifier.size(38.dp),
+                imageVector = Icons.Filled.FavoriteBorder,
+                contentDescription = "favorite"
+            )
         }
     }
+}
+
+@RequiresApi(Build.VERSION_CODES.O)
+fun setFormat(date: String): String {
+//    val inputString = "2006-03-25T10:30:00+12:00"
+    val formatter = DateTimeFormatter.ofPattern("MMM dd yyyy hh:mm", Locale.ENGLISH)
+
+    val dateTime = OffsetDateTime.parse(date)
+    return dateTime.format(formatter)
+
+//    println(formattedDate)
 }

@@ -1,5 +1,7 @@
 package com.islas.mockktesting.presentation
 
+import android.os.Build
+import androidx.annotation.RequiresApi
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
@@ -12,6 +14,7 @@ import androidx.navigation.NavHostController
 import com.islas.mockktesting.designsystem.components.SpaceCard
 import com.islas.mockktesting.navigation.graphs.Graph
 
+@RequiresApi(Build.VERSION_CODES.O)
 @Composable
 fun LaunchListView(
     viewModel: MainViewModel,

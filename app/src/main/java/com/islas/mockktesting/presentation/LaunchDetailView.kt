@@ -2,6 +2,8 @@ package com.islas.mockktesting.presentation
 
 import android.content.Intent
 import android.net.Uri
+import android.os.Build
+import androidx.annotation.RequiresApi
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -16,9 +18,12 @@ import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.FavoriteBorder
 import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -33,7 +38,9 @@ import androidx.compose.ui.unit.sp
 import androidx.core.content.ContextCompat.startActivity
 import coil.compose.SubcomposeAsyncImage
 import com.islas.mockktesting.R
+import com.islas.mockktesting.designsystem.components.setFormat
 
+@RequiresApi(Build.VERSION_CODES.O)
 @Composable
 fun LaunchDetailView(
     mainViewModel: MainViewModel
@@ -89,12 +96,17 @@ fun LaunchDetailView(
                         color = Color.White
                     )
                     Text(
-                        text = launchItem.dateLaunchedLocal,
+                        text = setFormat(launchItem.dateLaunchedLocal),
                         fontWeight = FontWeight.Normal,
                         fontSize = 14.sp,
                         color = Color.White
                     )
                 }
+                Icon(
+                    modifier = Modifier.size(38.dp),
+                    imageVector = Icons.Filled.FavoriteBorder,
+                    contentDescription = "favorite"
+                )
             }
         }
         Text(
